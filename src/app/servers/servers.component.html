@@ -16,42 +16,13 @@
   [disabled]="!allowNewServer"
 >Add Server
 </button>
-<!--<p [innerText]='allowNewServer'></p>-->
-<p [innerText]='serverCreation'></p>
+<!--&lt;!&ndash;<p [innerText]='allowNewServer'></p>&ndash;&gt;-->
+<!--<p [innerText]='serverCreation'></p>-->
+<p *ngIf='serverCreated; else noServer'>Server was created, name is{{serverName}}</p>
+<ng-template #noServer>
+  <p>No server created!</p>
+</ng-template>
 <app-server></app-server>
 <app-server></app-server>
 
-<hr>
-<input
-  type='text'
-  class='form-control'
-  placeholder='user'
-(input)='onCreateUserName($event)'
->
-
-<button
-  (click)='onCreateUser()'
-  class='btn btn-primary'
-  [disabled]="!userCreation.length"
->Add User
-</button>
-
-<p>{{ userName }}</p>
-
-<hr>
-<input
-  type='text'
-  class='form-control'
-  placeholder='user'
-  [(ngModel)]='userName'
->
-
-<button
-  (click)="userName = ''"
-  class='btn btn-primary'
-  [disabled]="!userName.length"
->Reset user
-</button>
-
-<p>{{ userName }}</p>
 
