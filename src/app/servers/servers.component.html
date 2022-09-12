@@ -9,7 +9,7 @@
   class='form-control'
   [(ngModel)]='serverName'
 >
-<p>{{ serverName }}</p>
+
 <button
   (click)='onCreateServer()'
   class='btn btn-primary'
@@ -20,4 +20,38 @@
 <p [innerText]='serverCreation'></p>
 <app-server></app-server>
 <app-server></app-server>
+
+<hr>
+<input
+  type='text'
+  class='form-control'
+  placeholder='user'
+(input)='onCreateUserName($event)'
+>
+
+<button
+  (click)='onCreateUser()'
+  class='btn btn-primary'
+  [disabled]="!userCreation.length"
+>Add User
+</button>
+
+<p>{{ userName }}</p>
+
+<hr>
+<input
+  type='text'
+  class='form-control'
+  placeholder='user'
+  [(ngModel)]='userName'
+>
+
+<button
+  (click)="userName = ''"
+  class='btn btn-primary'
+  [disabled]="!userName.length"
+>Reset user
+</button>
+
+<p>{{ userName }}</p>
 
