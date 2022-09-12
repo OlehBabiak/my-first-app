@@ -1,8 +1,11 @@
 <button
+  (click)='onCreateServer()'
   class='btn btn-primary'
   [disabled] = "!allowNewServer"
 >Add Server
 </button>
+<!--<p [innerText]='allowNewServer'></p>-->
+<p [innerText]='serverCreation'></p>
 <app-server></app-server>
 <app-server></app-server>
 
