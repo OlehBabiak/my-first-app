@@ -1,9 +1,9 @@
 <label>Server Name</label>
-<!--<input-->
-<!--  type='text'-->
-<!--  class='form-control'-->
-<!--  (input)='onUpdateServerName($event)'-->
-<!--&gt;-->
+<input
+  type='text'
+  class='form-control'
+  (input)='onUpdateServerName($event)'
+>
 <input
   type='text'
   class='form-control'
@@ -16,13 +16,27 @@
   [disabled]="!allowNewServer"
 >Add Server
 </button>
-<!--&lt;!&ndash;<p [innerText]='allowNewServer'></p>&ndash;&gt;-->
-<!--<p [innerText]='serverCreation'></p>-->
+<p [innerText]='allowNewServer'></p>
+<p [innerText]='serverCreation'></p>
 <p *ngIf='serverCreated'>Server was created, name is{{serverName}}</p>
 <!--<ng-template #noServer>-->
 <!--  <p>No server created!</p>-->
 <!--</ng-template>-->
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor='let server of servers'></app-server>
+
+<hr>
+
+<button
+  (click)=onToggleDisplay()
+  class='btn btn-primary'
+>Display details
+</button>
+<p *ngIf='showSecret'>Secret pass = tuna</p>
+<div
+  *ngFor='let logItem of log; let index = index'
+  [ngStyle]="{backgroundColor: index >= 4 ? 'blue' : 'transparent'}"
+  [ngClass]="{'white-text': index >= 4}"
+>{{ logItem }}</div>
+
 
 
